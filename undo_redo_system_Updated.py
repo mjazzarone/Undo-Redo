@@ -1,5 +1,5 @@
 # Import the Node class you created in node.py
-from node import Node
+from node_Updated import Node
 
 # Implement your Stack class here
 class Stack:
@@ -14,9 +14,9 @@ class Stack:
     def pop(self):
         if not self.top:
             return None
-        removed_node = self.top
+        removed_input = self.top
         self.top = self.top.next
-        return removed_node.value
+        return removed_input.value
     
     def is_empty(self):
         return self.top is None
@@ -27,10 +27,13 @@ class Stack:
         else:
             return None
     
-    def __iter__(self):
+    def print_stack(self):
         current = self.top
+        if not current:
+            print("Stack is empty")
+            return
         while current:
-            yield current.value
+            print(f"- {current.value}")
             current = current.next
 
     
@@ -63,7 +66,7 @@ def run_undo_redo():
             # Pop an action from the undo stack and push it onto the redo stack
             action = undo_stack.pop()
             if action is None:
-                print("Nothing to undo.")
+                print("No actions to undo.")
             else:
                 redo_stack.push(action)
                 print(f"Undone action: {action}")
@@ -73,7 +76,7 @@ def run_undo_redo():
             # Pop an action from the redo stack and push it onto the undo stack
             action = redo_stack.pop()
             if action is None:
-                print("Nothing to redo.")
+                print("No actions to redo.")
             else:
                 undo_stack.push(action)
                 print(f"Redone action: {action}")
@@ -87,8 +90,7 @@ def run_undo_redo():
             if undo_stack.is_empty():
                 print("Empty")
             else:
-                for action in undo_stack:
-                    print(action)
+                undo_stack.print_stack()
             
             
 
@@ -98,8 +100,7 @@ def run_undo_redo():
             if redo_stack.is_empty():
                 print("Empty")
             else:
-                for action in redo_stack:
-                    print(action)
+                redo_stack.print_stack()
             
             
         elif choice == "6":
