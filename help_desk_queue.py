@@ -1,5 +1,5 @@
 # Import the Node class you created in node.py
-from node_Updated import Node
+from node import Node
 
 # Implement your Queue class here
 class Queue:
