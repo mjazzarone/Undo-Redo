@@ -27,10 +27,13 @@ class Stack:
         else:
             return None
     
-    def __iter__(self):
+    def print_stack(self):
         current = self.top
+        if not current:
+            print("Stack is empty")
+            return
         while current:
-            yield current.value
+            print (f" - {current.value}")
             current = current.next
 
     
@@ -87,8 +90,7 @@ def run_undo_redo():
             if undo_stack.is_empty():
                 print("Empty")
             else:
-                for action in undo_stack:
-                    print(action)
+                undo_stack.print_stack()
             
             
 
@@ -98,8 +100,7 @@ def run_undo_redo():
             if redo_stack.is_empty():
                 print("Empty")
             else:
-                for action in redo_stack:
-                    print(action)
+                redo_stack.print_stack()
             
             
         elif choice == "6":

@@ -95,3 +95,16 @@ def run_help_desk():
 
 if __name__ == "__main__":
     run_help_desk()
+'''For our undo/redo program, a stack is the right choice for this type of scenario because of the
+Last-In, First-Out order of operations. In our Undo/Redo program we are looking to undo our most recent
+action, as well as redo our most recent action in the undo stack. In other words, we want to have our last
+action be the first thing undone and the last thing undone to be the first thing redone. This fits the
+usage of a stack perfectly as we are looking to go back through our most recent actions and reverse the
+most recent one. For our Help Desk Queue program we are looking to create a list where new customers are 
+added to the back and the customers at the front of the queue are taken care of first. In our prgorm this
+means putting new entries at the back of the queue and taking out the first entry in the queue when we are
+finished with it. This fits a queue well because of the First-In, First-Out order of operations. A queue also
+works here because we are handling requests in the order they arrive, when customers request help, and fairness
+and timing matter, first customer to request help, gets helped. The main difference between my implementations
+of Stacks and Queues compared to Lists is that the Lists are more for general purpose storage where Queues and Stacks 
+are more built to have more precise control over memory and order.'''
